@@ -1,0 +1,25 @@
+{
+    "editor.autoIndent": "advanced",
+    "files.autoGuessEncoding": false,
+    "files.encoding": "utf8bom",
+    "json.schemaDownload.enable": true,
+    "json.format.enable": true,
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "/bucket/*.json"
+            ],
+            "url": "https://codechina.csdn.net/-/snippets/26/raw/master/scoop.schema.json"
+        }
+    ],
+    "yaml.schemas": {
+        ".github/workflows/*.yaml": "https://json.schemastore.org/github-workflow"
+    },
+    "python.linting.pycodestyleEnabled": false,
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.formatting.provider": "black",
+    "files.watcherExclude": {
+        "**/target": true
+    }
+}
