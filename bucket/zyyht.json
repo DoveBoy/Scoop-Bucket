@@ -1,0 +1,28 @@
+{
+    "version": "6.89",
+    "license": "Proprietary",
+    "url": "https://big5.newone.com.cn/zyyht/zyyht.exe#/dl.zip",
+    "homepage": "https://yht.cmschina.com/index.html",
+    "hash": "md5:e3eb5bdcece5175ecda563c4a3ae610a",
+    "description": "招商证券的股票理财平台",
+    "bin": "TdxW.exe",
+    "shortcuts": [
+        [
+            "TdxW.exe",
+            "智远一户通"
+        ]
+    ],
+    "checkver": {
+        "url": "https://yht.cmschina.com/resource.json",
+        "jsonpath": "$.yhtPC.version",
+        "regex": "V([\\d+.]+)"
+    },
+    "autoupdate": {
+        "url": "https://big5.newone.com.cn/zyyht/zyyht.exe#/dl.zip",
+        "hash": {
+            "url": "https://yht.cmschina.com/resource.json",
+            "jsonpath": "$.yhtPC.MD5",
+            "type": "md5"
+        }
+    }
+}
