@@ -3,32 +3,33 @@
 # Author: Dragon1573
 ###############################################################################
 
-name: Scoop Update
+name: Refresh Bucket
 on:
   schedule:
     # A scheduled workflow toggled every 3 hours starting from 00:00 every day.
-    - cron: "0 0/3 * * *"
+    - cron: "0 */3 * * *"
+
+defaults:
+  run:
+    shell: pwsh
 
 jobs:
   update:
     runs-on: windows-latest
     steps:
       - name: Install Scoop
-        shell: pwsh
         run: |
           # Enable Powershell Authority
           Set-ExecutionPolicy RemoteSigned -scope CurrentUser
           # Install Scoop
           Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
-      - name: Checkout Bucket
+      - name: Checkout
         uses: actions/checkout@v2.3.4
       - name: Config Myself
-        shell: bash
         run: |
           git config --local user.email "Legend_1949@126.com"
           git config --local user.name "Dragon1573"
-      - name: Auto Update
-        shell: bash
+      - name: Version Check
         run: python utils/autoUpdate.py
       - name: Push Updates
         uses: ad-m/github-push-action@v0.6.0
