@@ -1,15 +1,14 @@
-# Oh My Scoop - 个人私有 Scoop 软件源
+# Oh My Scoop - A personal Scoop Bucket (Rarely used)
 
-## 使用软件源
+[![License under The Unlicense](https://img.shields.io/github/license/Dragon1573/Scoop-Bucket?color=blue&label=License)](https://github.com/Dragon1573/Scoop-Bucket/blob/main/LICENSE)
 
-```powershell
-# 此处使用 HTTPS 链接，也支持 SSH 链接
-scoop bucket add private https://codechina.csdn.net/u011367208/scoop-bucket.git
+## Installation
+
+Please makesure you have installed [**Scoop**](https://scoop.sh/) on your device. This repository is intended to be installed as Scoop Bucket.
+
+```pwsh
+# Clone via HTTPS
+scoop bucket add <any_name> https://github.com/Dragon1573/Scoop-Bucket.git
+# Clone via SSH (recommended)
+scoop bucket add <any_name> git@github.com:Dragon1573/Scoop-Bucket.git
 ```
-
-## 收录软件
-
-&emsp;&emsp;以下仅按添加时间列出前10款软件：
-
-1. 智远一户通：招商证券的股票理财平台（`zyyht`）
-2. SpeedTest中国大陆命令行版：中国大陆版本的全球知名测速软件（`speedtest-cn-cli`）
