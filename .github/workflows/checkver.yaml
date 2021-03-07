@@ -17,12 +17,6 @@ jobs:
   update:
     runs-on: windows-latest
     steps:
-      - name: Install Scoop
-        run: |
-          # Enable Powershell Authority
-          Set-ExecutionPolicy RemoteSigned -scope CurrentUser
-          # Install Scoop
-          Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
       - name: Checkout
         uses: actions/checkout@v2.3.4
       - name: Config Myself
@@ -30,7 +24,16 @@ jobs:
           git config --local user.email "Legend_1949@126.com"
           git config --local user.name "Dragon1573"
       - name: Version Check
-        run: python utils/autoUpdate.py
+        # Each runs are in different shell. They are isolated so Python could
+        # not detect the installation of scoop. Put them together to avoid
+        # this exception.
+        run: |
+          # Enable Powershell Authority
+          Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+          # Install Scoop
+          Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+          # Version Check by Scoop
+          python utils/autoUpdate.py
       - name: Push Updates
         uses: ad-m/github-push-action@v0.6.0
         with:
