@@ -5,9 +5,15 @@
 
 name: Refresh Bucket
 on:
+  push:
   schedule:
-    # A scheduled workflow toggled every 3 hours starting from 00:00 every day.
-    - cron: "0 */3 * * *"
+    # Cron Syntax:
+    #   - minutes (0 - 59)
+    #   - hours (0 - 23)
+    #   - day of month (1 - 31)
+    #   - month of year (1 - 12)
+    #   - day of week (0 - 6)
+    - cron: "0 0 * * MON"
 
 defaults:
   run:
