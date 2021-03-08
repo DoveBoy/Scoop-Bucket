@@ -3,7 +3,6 @@
     "description": "A new generation of financial terminals developed by Ping An Group for investors.",
     "homepage": "https://stock.pingan.com/static/info/download/index.html",
     "license": "Proprietary",
-    "notes": "This application should be installed in sudo mode!",
     "depends": "sudo",
     "url": "https://pacdn.m.stock.pingan.com/huodong/pa18download/ths_pc/2.15.0/pazq_thspc_v1.5.3.exe#/setup.exe",
     "hash": "md5:7c606d6d16752b14de8a646246b97a3e",
@@ -19,12 +18,14 @@
         "}"
     ],
     "uninstaller": {
-        "file": "unins000.exe",
-        "args": [
-            "/SILENT"
+        "script": [
+            "sudo $dir\\unins000.exe /SILENT"
         ]
     },
-    "bin": "hexin.exe",
+    "bin": [
+        "hexin.exe",
+        "unins000.exe"
+    ],
     "shortcuts": [
         [
             "hexin.exe",
