@@ -1,0 +1,49 @@
+{
+    "version": "1.5.3",
+    "description": "A new generation of financial terminals developed by Ping An Group for investors.",
+    "homepage": "https://stock.pingan.com/static/info/download/index.html",
+    "license": "Proprietary",
+    "notes": "This application should be installed in sudo mode!",
+    "depends": "sudo",
+    "url": "https://pacdn.m.stock.pingan.com/huodong/pa18download/ths_pc/2.15.0/pazq_thspc_v1.5.3.exe#/setup.exe",
+    "hash": "md5:7c606d6d16752b14de8a646246b97a3e",
+    "installer": {
+        "args": [
+            "/DIR=$dir",
+            "/SILENT"
+        ]
+    },
+    "post_install": [
+        "if (Test-Path \"$dir\\setup.exe\") {",
+        "    Remove-Item $dir\\setup.exe | Out-Null",
+        "}"
+    ],
+    "uninstaller": {
+        "file": "unins000.exe",
+        "args": [
+            "/SILENT"
+        ]
+    },
+    "bin": "hexin.exe",
+    "shortcuts": [
+        [
+            "hexin.exe",
+            "平安证券智投版"
+        ]
+    ],
+    "checkver": {
+        "url": "https://stock.pingan.com/noderestapi/frontend/softdown/info/1",
+        "jsonpath": "$.results.list[?(@.title == '平安证券智投版')].version",
+        "regex": "V([\\d.]+)"
+    },
+    "autoupdate": {
+        "note": "Relax yourself. They won't update this frequently.",
+        "url": "https://pacdn.m.stock.pingan.com/huodong/pa18download/ths_pc/2.15.0/pazq_thspc_v$version.exe#/setup.exe",
+        "hash": {
+            "url": "https://stock.pingan.com/noderestapi/frontend/softdown/info/1",
+            "jsonpath": "$.results.list[?(@.title == '平安证券智投版')].MD5",
+            "type": "md5",
+            "mode": "json"
+        }
+    }
+}
