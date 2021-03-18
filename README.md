@@ -4,7 +4,7 @@
 
 ## Installation
 
-Please makesure you have installed [**Scoop**](https://scoop.sh/) on your device. This repository is intended to be installed as Scoop Bucket.
+Please makesure you have installed [**Scoop**](https://scoop.sh/) or [**Shovel**](https://github.com/Ash258/Scoop-Core) on your device. This repository is intended to be installed as Scoop/Shovel Bucket.
 
 ```pwsh
 # Clone via HTTPS

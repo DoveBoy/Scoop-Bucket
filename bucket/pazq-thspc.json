@@ -1,6 +1,6 @@
 {
     "version": "1.5.3",
-    "description": "A new generation of financial terminals developed by Ping An Group for investors.",
+    "description": "平安证券采用最新IT技术倾心为投资者打造的新一代PC金融终端。基于同花顺，支持科创版交易。",
     "homepage": "https://stock.pingan.com/static/info/download/index.html",
     "license": "Proprietary",
     "depends": "sudo",
