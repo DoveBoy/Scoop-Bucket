@@ -36,7 +36,6 @@
         "regex": "V([\\d.]+)"
     },
     "autoupdate": {
-        "note": "Relax yourself. They won't update this frequently.",
         "url": "https://pacdn.m.stock.pingan.com/huodong/pa18download/ths_pc/2.15.0/pazq_thspc_v$version.exe#/setup.exe",
         "hash": {
             "url": "https://stock.pingan.com/noderestapi/frontend/softdown/info/1",
