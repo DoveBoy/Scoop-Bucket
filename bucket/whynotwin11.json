@@ -1,0 +1,37 @@
+{
+    "version": "2.2.4.5",
+    "description": "Detector for identifing why your PC isn't Windows 11 Release Ready",
+    "homepage": "https://github.com/rcmaehl/WhyNotWin11",
+    "license": "LGPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/rcmaehl/WhyNotWin11/releases/download/2.2.4.5/WhyNotWin11.exe",
+            "bin": "WhyNotWin11.exe",
+            "hash": "de31cf8fe0f00ef87597f3b8ccf500c4c434177fcd31436b6b5a72d57d4a81b0"
+        },
+        "32bit": {
+            "url": "https://github.com/rcmaehl/WhyNotWin11/releases/download/2.2.4.5/WhyNotWin11_x86.exe",
+            "bin": "WhyNotWin11_x86.exe",
+            "hash": "9dbe0cbab55decabd60348f4ad2791884e5654c9d7bfdca1ce05d10bef5e6897"
+        }
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/rcmaehl/WhyNotWin11/releases/download/$version/WhyNotWin11.exe",
+                "hash": {
+                    "url": "https://github.com/rcmaehl/WhyNotWin11/releases/download/$version/checksums.sha256",
+                    "regex": "(\\S+) \\*WhyNotWin11.exe"
+                }
+            },
+            "32bit": {
+                "url": "https://github.com/rcmaehl/WhyNotWin11/releases/download/$version/WhyNotWin11_x86.exe",
+                "hash": {
+                    "url": "https://github.com/rcmaehl/WhyNotWin11/releases/download/$version/checksums.sha256",
+                    "regex": "(\\S+) \\*WhyNotWin11_x86.exe"
+                }
+            }
+        }
+    },
+    "checkver": "github"
+}
