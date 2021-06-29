@@ -32,11 +32,11 @@
     ],
     "checkver": {
         "url": "https://stock.pingan.com/noderestapi/frontend/softdown/info/1",
-        "jsonpath": "$.results.list[?(@.title == '平安证券智投版')].version",
-        "regex": "V([\\d.]+)"
+        "jsonpath": "$.results.list[?(@.title == '平安证券智投版')].downloadUrl",
+        "regex": "(?<link>.*v(?<version>[\\d.]+).exe)"
     },
     "autoupdate": {
-        "url": "https://pacdn.m.stock.pingan.com/huodong/pa18download/ths_pc/2.15.0/pazq_thspc_v$version.exe#/setup.exe",
+        "url": "$matchLink",
         "hash": {
             "url": "https://stock.pingan.com/noderestapi/frontend/softdown/info/1",
             "jsonpath": "$.results.list[?(@.title == '平安证券智投版')].MD5",
