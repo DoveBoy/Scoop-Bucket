@@ -7,12 +7,24 @@
         "64bit": {
             "url": "https://github.com/rcmaehl/WhyNotWin11/releases/download/2.3.0.1/WhyNotWin11.exe",
             "bin": "WhyNotWin11.exe",
-            "hash": "4505a6ed4a5f8a7401d17f76ee8ba73340de5e2905fee2c6c8551d0852d29e9c"
+            "hash": "4505a6ed4a5f8a7401d17f76ee8ba73340de5e2905fee2c6c8551d0852d29e9c",
+            "shortcuts": [
+                [
+                    "WhyNotWin11.exe",
+                    "Why-Not-Win11"
+                ]
+            ]
         },
         "32bit": {
             "url": "https://github.com/rcmaehl/WhyNotWin11/releases/download/2.3.0.1/WhyNotWin11_x86.exe",
             "bin": "WhyNotWin11_x86.exe",
-            "hash": "eb0f517d97bb1d4cbdab73de9a97ecd0f6e939145b22a37f6b94dd1513d65c34"
+            "hash": "eb0f517d97bb1d4cbdab73de9a97ecd0f6e939145b22a37f6b94dd1513d65c34",
+            "shortcuts": [
+                [
+                    "WhyNotWin11_x86.exe",
+                    "Why-Not-Win11"
+                ]
+            ]
         }
     },
     "autoupdate": {
