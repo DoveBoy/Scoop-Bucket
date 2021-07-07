@@ -15,9 +15,13 @@ on:
     #   - day of week (0 - 6)
     - cron: "0 0/6 * * *"
 
+env:
+  SCOOP: C:\Scoop\
+  SCOOP_GLOBAL: C:\Scoop\global
+
 defaults:
   run:
-    shell: pwsh
+    shell: pwsh -File {0}
 
 jobs:
   update:
@@ -25,16 +29,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2.3.4
-      - name: Version Check
-        # Each runs are in different shell. They are isolated so Python could
-        # not detect the installation of scoop. Put them together to avoid
-        # this exception.
+      - name: Install Scoop
         run: |
-          # Enable Powershell Authority
           Set-ExecutionPolicy RemoteSigned -scope CurrentUser
-          # Install Scoop
           Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
-          # Version Check by Scoop
+      - name: Git Configurations
+        run: |
+          git config user.name 'GitHub-Actions'
+          git config user.email 'actions@noreply.github.com'
+      - name: Version Check
+        run: |
+          $env:PATH += ';C:\Scoop\shims'
           python utils/autoUpdate.py
       - name: Push Updates
         uses: ad-m/github-push-action@v0.6.0
