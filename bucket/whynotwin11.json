@@ -45,5 +45,12 @@
             }
         }
     },
-    "checkver": "github"
+    "checkver": "github",
+    "uninstaller": {
+        "script": [
+            "if ( Test-Path \"$env:LOCALAPPDATA\\WhyNotWin11\" ) {",
+            "    Remove-Item -Recurse \"$env:LOCALAPPDATA\\WhyNotWin11\"",
+            "}"
+        ]
+    }
 }
