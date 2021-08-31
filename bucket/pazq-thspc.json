@@ -1,11 +1,11 @@
 {
-    "version": "1.5.4",
+    "version": "1.5.7",
     "description": "平安证券采用最新IT技术倾心为投资者打造的新一代PC金融终端。基于同花顺，支持科创版交易。",
     "homepage": "https://stock.pingan.com/static/info/download/index.html",
     "license": "Proprietary",
     "depends": "sudo",
-    "url": "https://pacdn.m.stock.pingan.com/huodong/pa18download/ths_pc/2.18.0/pazq_thspc_v1.5.4.exe",
-    "hash": "md5:b61e6e4131cbc7e1dbfd5e74456c452a",
+    "url": "https://pacdn.m.stock.pingan.com/huodong/pa18download/ths_pc/2.23.0/pazq_thspc_v1.5.7.exe",
+    "hash": "md5:ccc17849fb44cc683940305f5532812d",
     "installer": {
         "args": [
             "/DIR=$dir",
