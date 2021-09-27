@@ -40,14 +40,15 @@ jobs:
         run: |
           Set-ExecutionPolicy RemoteSigned -scope CurrentUser
           Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
-      - name: Git Configurations
-        run: |
-          git config user.name 'GitHub-Actions'
-          git config user.email 'actions@noreply.github.com'
       - name: Version Check
         run: |
           $env:PATH += ';C:\Scoop\shims'
           python utils/autoUpdate.py
+      - name: Create commit
+        shell: bash
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
       - name: Push Updates
         uses: ad-m/github-push-action@v0.6.0
         with:
