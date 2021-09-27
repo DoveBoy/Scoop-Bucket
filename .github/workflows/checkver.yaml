@@ -29,7 +29,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Cache Scoop
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: C:\Scoop
+          key: scoop-cache
       - name: Install Scoop
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           Set-ExecutionPolicy RemoteSigned -scope CurrentUser
           Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
