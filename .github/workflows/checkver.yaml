@@ -44,16 +44,17 @@ jobs:
         run: |
           $env:PATH += ';C:\Scoop\shims'
           .\bin\checkver.ps1 -U *
-          .\bin\checkver.ps1 -U * *> update.log
+          .\bin\checkver.ps1 -U * *> ..\update.log
       - name: Create commit
         shell: bash
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          sed -i 'N;s/\n//g' update.log     # Generate update log from shell
-          sed -i 's/^/- /g' update.log      # Format update log
-          sed -i '1i Actions[bot]: Update Apps\n' update.log    # Append Subject line
+          sed -i 'N;s/\n//g' ../update.log      # Generate update log from shell
+          sed -i 's/^/- /g' ../update.log       # Format update log
+          sed -i '1i Actions[bot]: Update Apps\n' ../update.log    # Append Subject line
           git add bucket/
+          git status --porcelain                # Debug only
           if [ -z "$(git status --porcelain)" ]; then
               echo 'Everything up to date!'
           else
