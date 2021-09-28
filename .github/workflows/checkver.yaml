@@ -54,11 +54,10 @@ jobs:
           sed -i 's/^/- /g' ../update.log       # Format update log
           sed -i '1i Actions[bot]: Update Apps\n' ../update.log    # Append Subject line
           git add bucket/
-          git status --porcelain                # Debug only
           if [ -z "$(git status --porcelain)" ]; then
               echo 'Everything up to date!'
           else
-              git commit -F update.log
+              git commit -F ../update.log
           fi
       - name: Push Updates
         uses: ad-m/github-push-action@v0.6.0
