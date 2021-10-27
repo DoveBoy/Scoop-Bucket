@@ -6,6 +6,8 @@
 name: Refresh Bucket
 on:
   push:
+    branches:
+      - main
   schedule:
     # Cron Syntax:
     #   - minutes (0 - 59)
