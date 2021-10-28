@@ -3,7 +3,7 @@
 # Author: Dragon1573
 ###############################################################################
 
-name: Refresh Bucket
+name: Scoop CI
 on:
   push:
     branches:
@@ -42,27 +42,11 @@ jobs:
         run: |
           Set-ExecutionPolicy RemoteSigned -scope CurrentUser
           Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
-      - name: Version Check
-        run: |
-          $env:PATH += ';C:\Scoop\shims'
-          .\bin\checkver.ps1 -U *
-          .\bin\checkver.ps1 -U * *> ..\update.log
-      - name: Format commit log
-        shell: bash
-        run: |
-          sed -i 'N;s/\n//g' ../update.log
-          sed -i 's/^/- /g' ../update.log
-          sed -i '1i Actions[bot]: Update Apps\n' ../update.log
-      - name: Read commit log
-        id: changelog
-        uses: juliangruber/read-file-action@v1
-        with:
-          path: ../update.log
-      - name: Add & Commit
-        uses: EndBug/add-and-commit@v7
-        with:
           add: "bucket"
           branch: main
           default_author: github_actions
           message: ${{ steps.changelog.outputs.content }}
           push: true
+      - name: Refresh Bucket
+        run: |
+          .\bin\auto-pr.ps1 -p -u 'Dragon1573/Scoop-Bucket:main'
