@@ -49,4 +49,5 @@ jobs:
           push: true
       - name: Refresh Bucket
         run: |
+          $env:PATH += ';${{ env.SCOOP }}\shims'
           .\bin\auto-pr.ps1 -p -u 'Dragon1573/Scoop-Bucket:main'
