@@ -18,7 +18,7 @@ on:
     - cron: "0 0/6 * * *"
 
 env:
-  SCOOP: C:\Scoop\
+  SCOOP: C:\Scoop
   SCOOP_GLOBAL: C:\Scoop\global
 
 defaults:
@@ -35,7 +35,7 @@ jobs:
         id: cache
         uses: actions/cache@v2
         with:
-          path: C:\Scoop
+          path: ${{ env.SCOOP }}
           key: scoop-cache
       - name: Install Scoop
         if: steps.cache.outputs.cache-hit != 'true'
@@ -50,4 +50,5 @@ jobs:
       - name: Refresh Bucket
         run: |
           $env:PATH += ';${{ env.SCOOP }}\shims'
+          git remote add origin 'https://github.com/Dragon1573/Scoop-Bucket.git'
           .\bin\auto-pr.ps1 -p -u 'Dragon1573/Scoop-Bucket:main'
