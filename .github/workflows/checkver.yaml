@@ -32,7 +32,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Excavate
-        uses: Ash258/Scoop-GithubActions@main-win
+        uses: shovel-org/GithubActions@main
         env:
           GITH_EMAIL: actions@github.com
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
