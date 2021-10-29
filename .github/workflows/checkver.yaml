@@ -31,24 +31,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Cache Scoop
-        id: cache
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.SCOOP }}
-          key: scoop-cache
-      - name: Install Scoop
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: |
-          Set-ExecutionPolicy RemoteSigned -scope CurrentUser
-          Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
-          add: "bucket"
-          branch: main
-          default_author: github_actions
-          message: ${{ steps.changelog.outputs.content }}
-          push: true
-      - name: Refresh Bucket
-        run: |
-          $env:PATH += ';${{ env.SCOOP }}\shims'
-          git remote add origin 'https://github.com/Dragon1573/Scoop-Bucket.git'
-          .\bin\auto-pr.ps1 -p -u 'Dragon1573/Scoop-Bucket:main'
+      - name: Excavate
+        uses: Ash258/Scoop-GithubActions@main-win
+        env:
+          GITH_EMAIL: actions@github.com
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SKIP_UPDATED: '1'
+          SHOVEL: '1'
+          SCOOP_BRANCH: main
