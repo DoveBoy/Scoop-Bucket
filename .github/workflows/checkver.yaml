@@ -5,6 +5,7 @@
 
 name: Scoop CI
 on:
+  workflow_dispatch:
   schedule:
     # Cron Syntax:
     #   - minutes (0 - 59)
