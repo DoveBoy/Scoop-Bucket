@@ -5,9 +5,6 @@
 
 name: Scoop CI
 on:
-  push:
-    branches:
-      - main
   schedule:
     # Cron Syntax:
     #   - minutes (0 - 59)
@@ -16,17 +13,9 @@ on:
     #   - month of year (1 - 12)
     #   - day of week (0 - 6)
     - cron: "0 0/6 * * *"
-
-env:
-  SCOOP: C:\Scoop
-  SCOOP_GLOBAL: C:\Scoop\global
-
-defaults:
-  run:
-    shell: pwsh -File {0}
-
 jobs:
   update:
+    name: Excavate
     runs-on: windows-latest
     steps:
       - name: Checkout
@@ -38,4 +27,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SKIP_UPDATED: '1'
           SHOVEL: '1'
-          SCOOP_BRANCH: main
+          SCOOP_BRANCH: NEW
