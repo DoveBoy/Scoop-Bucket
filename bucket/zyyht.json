@@ -1,10 +1,10 @@
 {
-    "version": "7.11",
+    "version": "7.12",
     "description": "招商证券的股票理财平台",
     "homepage": "https://yht.cmschina.com/index.html",
     "license": "Proprietary",
     "url": "https://big5.newone.com.cn/zyyht/zyyht.exe#/dl.zip",
-    "hash": "md5:6730f6a2df2bb9ecc42e5c1c54842b02",
+    "hash": "md5:6eff5d2043648953c08571aaa125b1d4",
     "bin": "TdxW.exe",
     "shortcuts": [
         [
