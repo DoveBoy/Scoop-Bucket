@@ -13,10 +13,13 @@ on:
     #   - month of year (1 - 12)
     #   - day of week (0 - 6)
     - cron: "0 */2 * * *"
+  watch:
+    types: started
 jobs:
   update:
     name: Excavate
     runs-on: windows-latest
+    if: ${{ github.event.repository.owner.id == github.event.sender.id }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
