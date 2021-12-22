@@ -12,7 +12,7 @@ on:
     #   - day of month (1 - 31)
     #   - month of year (1 - 12)
     #   - day of week (0 - 6)
-    - cron: "0 0/6 * * *"
+    - cron: "0 */2 * * *"
 jobs:
   update:
     name: Excavate
@@ -28,3 +28,10 @@ jobs:
           SKIP_UPDATED: '1'
           SHOVEL: '1'
           SCOOP_BRANCH: NEW
+      - name: Delete Workflow Runs
+        uses: Mattraks/delete-workflow-runs@main
+        with:
+         token: ${{ github.token }}
+         repository: ${{ github.repository }}
+         retain_days: 1
+         keep_minimum_runs: 0
