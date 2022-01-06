@@ -12,7 +12,6 @@
     "bin": "pls.exe",
     "checkver": {
         "github": "https://github.com/chenjiandongx/pls",
-        "regex": "/releases/tag/v([\\d.]+)"
     },
     "autoupdate": {
         "architecture": {
