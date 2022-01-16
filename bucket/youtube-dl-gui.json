@@ -1,0 +1,25 @@
+{
+    "homepage": "https://github.com/murrty/youtube-dl-gui",
+    "description": "GUI for youtube-dl + FFmpeg",
+    "license": "GPL-3.0-only",
+    "version": "2.27",
+    "url": "https://github.com/murrty/youtube-dl-gui/releases/download/2.27/youtube-dl-gui.zip",
+    "hash": "ab611f938f417fb4cf8ed9993d5040327b6ae2c7eca8544c8a7e32b32a7068ad",
+    "suggest": {
+        "youtube-dl": "youtube-dl",
+        "ffmpeg": "ffmpeg"
+    },
+    "bin": "youtube-dl-gui.exe",
+    "shortcuts": [
+        [
+            "youtube-dl-gui.exe",
+            "youtube-dl-gui"
+        ]
+    ],
+    "persist": "settings.ini",
+    "pre_install": "if(!(Test-Path \"$persist_dir\\settings.ini\")) { New-Item \"$dir\\settings.ini\" | Out-Null }",
+    "checkver": "github",
+    "autoupdate": {
+        "url": "https://github.com/murrty/youtube-dl-gui/releases/download/$version/youtube-dl-gui.zip"
+    }
+}
