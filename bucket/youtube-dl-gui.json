@@ -1,25 +1,42 @@
 {
-    "homepage": "https://github.com/murrty/youtube-dl-gui",
-    "description": "GUI for youtube-dl + FFmpeg",
-    "license": "GPL-3.0-only",
-    "version": "2.3",
-    "url": "https://github.com/murrty/youtube-dl-gui/releases/download/2.3/youtube-dl-gui.zip",
-    "hash": "ec618c7c93e2f56ca15cc99fdb1e68827e6e47adedf3c52d676301fbfcbd1c65",
-    "suggest": {
-        "youtube-dl": "youtube-dl",
-        "ffmpeg": "ffmpeg"
+    "version": "1.8.3",
+    "description": "A cross platform front-end GUI of the popular youtube-dl written in wxPython.",
+    "homepage": "https://github.com/oleksis/youtube-dl-gui",
+    "license": "Unlicense",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/oleksis/youtube-dl-gui/releases/download/v1.8.3/yt-dlg-20220118.2.msi#/dl.ism",
+            "hash": "71d4fc4eea97199218fdde36717e90326ed0fd4bd980c6afbffc263514e34be9"
+        }
     },
-    "bin": "youtube-dl-gui.exe",
+    "pre_install": [
+        "$_args = @{",
+        "    'Path' = \"$dir\\$fname\"",
+        "    'DestinationPath' = \"$dir\"",
+        "    'Removal' = $true",
+        "}",
+        "$LESSMSI = get_config 'MSIEXTRACT_USE_LESSMSI'",
+        "if ($LESSMSI) { $_args.Add('ExtractDir', 'APPDIR\\yt-dlg') } else { $_args.Add('ExtractDir', 'yt-dlg') }",
+        "Expand-MsiArchive @_args"
+    ],
     "shortcuts": [
         [
-            "youtube-dl-gui.exe",
-            "youtube-dl-gui"
+            "yt-dlg.exe",
+            "yt-dlg"
         ]
     ],
-    "persist": "settings.ini",
-    "pre_install": "if(!(Test-Path \"$persist_dir\\settings.ini\")) { New-Item \"$dir\\settings.ini\" | Out-Null }",
-    "checkver": "github",
+    "checkver": {
+        "github": "https://github.com/oleksis/youtube-dl-gui",
+        "regex": "v(?<version>[\\d.]+)/(?<msi>.*).msi"
+    },
     "autoupdate": {
-        "url": "https://github.com/murrty/youtube-dl-gui/releases/download/$version/youtube-dl-gui.zip"
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/oleksis/youtube-dl-gui/releases/download/v$version/$matchMsi.msi#/dl.ism",
+                "hash": {
+                    "url": "$baseurl/SHA2-256SUMS"
+                }
+            }
+        }
     }
 }
