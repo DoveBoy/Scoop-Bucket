@@ -17,12 +17,13 @@
         ]
     ],
     "checkver": {
-        "github": "https://github.com/PureWriter/desktop"
+        "url": "https://github.com/PureWriter/desktop/releases/latest",
+        "regex": "<a href=\"/PureWriter/desktop/releases/download/(?<tag>[\\d.]+)/PureWriter-(?<version>[\\d.]+)-Windows-x64\\.msi\""
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/PureWriter/desktop/releases/download/$version/PureWriter-$version-Windows-x64.msi"
+                "url": "https://github.com/PureWriter/desktop/releases/download/$matchTag/PureWriter-$version-Windows-x64.msi"
             }
         }
     }
