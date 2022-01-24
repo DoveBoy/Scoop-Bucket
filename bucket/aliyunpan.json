@@ -1,18 +1,18 @@
 {
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "阿里云盘命令行客户端，支持webdav文件服务",
     "homepage": "https://github.com/tickstep/aliyunpan",
     "license": "Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/tickstep/aliyunpan/releases/download/v0.1.1/aliyunpan-v0.1.1-windows-x64.zip",
-            "hash": "0c4b8828208992245f4bfdd026100a34fbe8b1909b7398217a394f0b8e74b6bc",
-            "extract_dir": "aliyunpan-v0.1.1-windows-x64"
+            "url": "https://github.com/tickstep/aliyunpan/releases/download/v0.1.2/aliyunpan-v0.1.2-windows-x64.zip",
+            "hash": "abbb09b15cf4726cd532101fad11515e27e581e3ff3353b6be3fe5038535b7e5",
+            "extract_dir": "aliyunpan-v0.1.2-windows-x64"
         },
         "32bit": {
-            "url": "https://github.com/tickstep/aliyunpan/releases/download/v0.1.1/aliyunpan-v0.1.1-windows-x86.zip",
-            "hash": "180be8a49f49022dfbe398e04835a213e385c77a34b85edcbfebc91527329466",
-            "extract_dir": "aliyunpan-v0.1.1-windows-x86"
+            "url": "https://github.com/tickstep/aliyunpan/releases/download/v0.1.2/aliyunpan-v0.1.2-windows-x86.zip",
+            "hash": "31b9037c0aab4e8352d3ea2b672c523e8e6fcd95be6679a41937fc7104339a55",
+            "extract_dir": "aliyunpan-v0.1.2-windows-x86"
         }
     },
     "bin": "aliyunpan.exe",
