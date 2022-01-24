@@ -10,11 +10,11 @@
         }
     },
     "bin": [
-                [
-                    "pls_windows_amd64.exe",
-                    "pls"
-                ]
-            ],
+        [
+            "pls_windows_amd64.exe",
+            "pls"
+        ]
+    ],
     "checkver": {
         "github": "https://github.com/chenjiandongx/pls",
     },
