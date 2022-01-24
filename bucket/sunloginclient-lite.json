@@ -1,0 +1,24 @@
+{
+    "version": "1.0.1.43315",
+    "description": "SunLoginClient_Lite by Oray",
+    "homepage": "https://sunlogin.oray.com/",
+    "license": {
+        "identifier": "Freeware"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://down.oray.com/sunlogin/windows/sunlogin_client_lite_1.0.1.43315_x64.exe#/sunloginclient-lite.exe",
+            "hash": "00e896518d0d3e7302ffbb7d56f05b2acf5950e583ad687bd674fd997f5073ce"
+        },
+        "32bit": {
+            "url": "https://down.oray.com/sunlogin/windows/sunlogin_client_lite_1.0.1.43315.exe#/sunloginclient-lite.exe",
+            "hash": "a78d9bacf29a9cdc542df806460ce903764bc7057aa6b7b965c13c9d4b7a9983"
+        }
+    },
+    "shortcuts": [
+        [
+            "sunloginclient-lite.exe",
+            "向日葵简约版"
+        ]
+    ]
+}
