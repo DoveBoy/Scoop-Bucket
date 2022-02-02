@@ -1,30 +1,21 @@
 {
     "version": "6.0.1",
-    "description": "An Internet censorship circumventing tunnel tool, forked from shadowsocksR, maintained now by HMBSbige.",
+    "description": "ShadowsocksR for Windows(without dotnet runtime)",
     "homepage": "https://github.com/HMBSbige/ShadowsocksR-Windows",
-    "license": "GNU General Public License v3.0",
+    "license": {
+        "identifier": "AGPL-3.0-only",
+        "url": "https://github.com/HMBSbige/ShadowsocksR-Windows/blob/master/LICENSE"
+    },
+    "suggest": {
+        "dotnet-desktop-runtime": "dotnet-desktop-runtime"
+    },
     "url": "https://github.com/HMBSbige/ShadowsocksR-Windows/releases/download/6.0.1/ShadowsocksR-6.0.1.7z",
     "hash": "7053e63c0b57760a3e559c3e65fb043fcc4f199611072b5dbcf0a01cf31c936c",
     "extract_dir": "ShadowsocksR",
     "pre_install": [
-        "   #Create placeholder files",
-        "function CreateFile([String] $file, [String] $content = $null) {",
-        "    if(!(Test-Path \"$persist_dir\\$file\")) {",
-        "        Write-Host \"Create placeholder for shadowsocksr-windows: $file\"",
-        "        New-Item -Force -Path \"$persist_dir\\$file\" -ItemType file -Value $content | Out-Null",
-        "    }",
-        "}",
-        "CreateFile 'gui-config.json' '{}'",
-        "CreateFile 'pac.txt'",
-        "CreateFile 'transfer_log.json' '{}'",
-        "CreateFile 'user-rule.txt'"
-    ],
-    "persist": [
-        "gui-config.json",
-        "pac.txt",
-        "transfer_log.json",
-        "user-rule.txt",
-        "temp"
+        "if (!(Test-Path \"$persist_dir\\gui-config.json\")) { New-Item \"$dir\\gui-config.json\" -ItemType \"file\" -Value \"{}\" | Out-Null }",
+        "if (!(Test-Path \"$persist_dir\\pac.txt\")) { New-Item \"$dir\\pac.txt\" -ItemType \"file\" | Out-Null }",
+        "if (!(Test-Path \"$persist_dir\\user-rule.txt\")) { New-Item \"$dir\\user-rule.txt\" -ItemType \"file\" | Out-Null }"
     ],
     "bin": "ShadowsocksR.exe",
     "shortcuts": [
@@ -33,12 +24,20 @@
             "ShadowsocksR"
         ]
     ],
-    "checkver": "github",
+    "persist": [
+        "gui-config.json",
+        "pac.txt",
+        "user-rule.txt"
+    ],
+    "checkver": {
+        "url": "https://github.com/HMBSbige/ShadowsocksR-Windows/releases",
+        "regex": "<span class.*?ShadowsocksR-([\\d.]+)\\.7z</span>"
+    },
     "autoupdate": {
         "url": "https://github.com/HMBSbige/ShadowsocksR-Windows/releases/download/$version/ShadowsocksR-$version.7z",
         "hash": {
             "url": "https://github.com/HMBSbige/ShadowsocksR-Windows/releases",
-            "find": "(?s)$basename.*?$sha256"
+            "regex": "(?sm)$basename.*?$sha256"
         }
     }
 }
