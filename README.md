@@ -20,7 +20,7 @@ Please makesure you have installed [**Scoop**](https://scoop.sh/) or [**Shovel**
 
 ```pwsh
 # Clone via HTTPS
-scoop bucket add <any_name> https://github.com/Dragon1573/Scoop-Bucket.git
+scoop bucket add <any_name> https://github.com/DoveBoy/Scoop-Bucket.git
 # Clone via SSH (recommended)
-scoop bucket add <any_name> git@github.com:Dragon1573/Scoop-Bucket.git
+scoop bucket add <any_name> git@github.com:DoveBoy/Scoop-Bucket.git
 ```
